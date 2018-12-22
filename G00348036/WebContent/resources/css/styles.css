@@ -1,0 +1,30 @@
+.error {
+	color: red;
+}
+
+.addbutton {
+	border: 1px solid #666; 
+	border-radius: 5px; 
+	padding: 4px; 
+	font-size: 12px;
+	font-weight: bold;
+	width: 120px; 
+	padding: 5px 10px; 
+	margin-bottom: 15px;
+}
+
+.labeld {
+	font-weight: bold;
+}
+
+.form {
+	border-top: 7px solid #076899;
+	border-bottom: 7px solid #076899;
+	text-align: left;
+	width:35%;
+	height:320px;
+	background-color: #f7f7f7;
+	padding:0 0 0 13px;
+	float:left;
+	margin:15px 6px 12px 0;
+}

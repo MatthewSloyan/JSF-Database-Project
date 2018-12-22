@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+	
+<f:metadata>
+  <f:event type="preRenderView" listener="#{courseController.loadCourse()}"/>
+</f:metadata>
+	
+<h:head>
+	<title>DCW Project 2018/19</title>
+</h:head>
+<h:body>
+	<h:outputStylesheet library="css" name="tables.css"/>
+	<h:outputStylesheet library="css" name="styles.css"/>
+	
+	<h:messages globalOnly="true" styleClass="error"/>
+	
+	<h:form>
+		<h:commandButton value="Add Course" action="addCourse" styleClass="addbutton"/>
+	
+		<h:dataTable value="#{courseController.courses}" var="c" 
+			headerClass="table-header" rowClasses="table-odd-row, table-even-row">
+			<h:column>
+		 	  <f:facet name="header">Course ID</f:facet>
+		 	  #{c.cID}
+			</h:column>
+			<h:column>
+		 	  <f:facet name="header">Course Name</f:facet>
+		 	  #{c.cName}
+			</h:column>
+			<h:column>
+		 	  <f:facet name="header">Course Duration</f:facet>
+		 	  #{c.duration}
+			</h:column>
+			<h:column>
+		 	  <f:facet name="header">Action</f:facet>
+		 	  <h:commandLink value="Show Students" action="#{courseController.loadCourseStudentDetails(c.cID)}"/> &#160;
+		 	  <h:commandLink value="Edit Course" action="#{courseController.loadCoursePage(c)}"/> &#160;
+		 	  <h:commandLink value="Delete" action="#{courseController.deleteCourse(c)}"/>
+			</h:column>			
+		</h:dataTable>
+	</h:form>
+	
+	<h:link value="Home" outcome="index"/>
+</h:body>
+</html>

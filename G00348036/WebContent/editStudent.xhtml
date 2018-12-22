@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+  
+  <h:head>
+    <title>Edit Student</title>
+  </h:head>
+  
+  <h:body>
+  	<h:outputStylesheet library="css" name="styles.css"/>
+  	
+	  	<h:form styleClass="form">
+		  	<h3>Editing Student: #{studentController.currentStudent.name}</h3>
+		  	
+		  	<!-- Print out error message -->
+		  	<h:messages globalOnly="true" styleClass="error"/>
+		  	
+		  	<!-- Column grid - 1st col = input desc, 2nd col = input field, 3 col = error message -->
+		  	<h:panelGrid columns="3">
+			  	Student ID: 
+				<h:inputText value="#{student.sid}" id="sid" p:placeholder="#{studentController.currentStudent.sid}" 
+					required="true" requiredMessage="Student ID is mandatory"> 
+				</h:inputText>
+				<h:message for="sid" styleClass="error"/> 
+			  	
+			  	Name: 
+				<h:inputText value="#{student.name}" id="name" p:placeholder="#{studentController.currentStudent.name}" 
+					required="true" requiredMessage="Student Name is mandatory"> 
+				</h:inputText>
+				<h:message for="name" styleClass="error"/> 
+			  	
+			  	Address: 
+				<h:inputText value="#{student.address}" id="address" p:placeholder="#{studentController.currentStudent.address}"/>
+				<h:message/> 
+				
+				Course ID: 
+				<h:inputText value="#{student.cID}" id="cID" p:placeholder="#{studentController.currentStudent.cID}" 
+					required="true" requiredMessage="Course ID is mandatory"> 
+				</h:inputText>
+				<h:message for="cID" styleClass="error"/> 
+			</h:panelGrid>
+		  	
+			<br/>
+			<h:commandButton value="Edit" action="#{studentController.editStudent(student)}" styleClass="addbutton" />
+			
+			<br/><br/>
+			<h:link value="Home" outcome="index"/> &#160;
+			<h:link value="Students" outcome="list_students"/>
+		
+		</h:form>
+  </h:body>
+</html>

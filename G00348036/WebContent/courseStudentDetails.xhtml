@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+	
+<h:head>
+	<title>DCW Project 2018/19</title>
+</h:head>
+<h:body>
+	<h:outputStylesheet library="css" name="tables.css"/>
+	<h:outputStylesheet library="css" name="styles.css"/>
+	
+	<h3>Course Student Details</h3>
+	
+	<h:messages globalOnly="true" styleClass="error"/>
+	
+	<h:form>
+		<h:dataTable value="#{courseController.courseStudent}" var="cs" 
+			headerClass="table-header" rowClasses="table-odd-row, table-even-row">
+			<h:column>
+		 	  <f:facet name="header">Course ID</f:facet>
+		 	  #{cs.cID}
+			</h:column>
+			<h:column>
+		 	  <f:facet name="header">Course Name</f:facet>
+		 	  #{cs.cName}
+			</h:column>
+			<h:column>
+		 	  <f:facet name="header">Course Duration</f:facet>
+		 	  #{cs.duration}
+			</h:column>
+			<h:column>
+		 	  <f:facet name="header">Student Name</f:facet>
+		 	  #{cs.name}
+			</h:column>
+			<h:column>
+		 	  <f:facet name="header">Student Address</f:facet>
+		 	  #{cs.address}
+			</h:column>
+		</h:dataTable>
+	</h:form>
+	
+	<h:link value="Home" outcome="index"/> &#160;
+	<h:link value="Course" outcome="list_courses"/>
+</h:body>
+</html>
